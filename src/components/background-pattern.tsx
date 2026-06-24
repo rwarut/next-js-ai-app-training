@@ -1,12 +1,22 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import DotPattern from "@/components/ui/dot-pattern";
 import Particles from "@/components/ui/particles";
 import { cn } from "@/lib/utils";
 
 export const BackgroundPattern = () => {
   const { resolvedTheme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   const isLightTheme = resolvedTheme === "light";
 
   return (
