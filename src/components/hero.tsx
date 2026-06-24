@@ -1,40 +1,49 @@
-import { ArrowUpRight, CirclePlay } from "lucide-react";
+import { ArrowUpRight, CirclePlay, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <div className="flex min-h-screen items-center justify-center px-6">
-
-      <div className="relative z-10 max-w-3xl text-center">
+    <div className="relative flex min-h-[90vh] items-center justify-center overflow-hidden bg-background px-6">
+      {/* Visual background accents */}
+      <div className="absolute top-1/4 left-1/4 -z-10 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 -z-10 h-80 w-80 rounded-full bg-secondary/15 blur-3xl" />
+      
+      <div className="relative z-10 max-w-4xl text-center">
         <Badge
           asChild
-          className="rounded-full border-border py-1"
+          className="rounded-[4px] border-secondary border px-3 py-1 font-sans text-xs uppercase tracking-widest text-[#083344] bg-[#22D3EE]/10"
           variant="secondary"
         >
-          <Link href="#">
-            Just released v1.0.0 <ArrowUpRight className="ml-1 size-4" />
+          <Link href="/product" className="inline-flex items-center gap-1.5 font-bold">
+            <Sparkles className="size-3.5 text-secondary animate-pulse" />
+            ShopVibe New Collection is Live <ArrowUpRight className="size-3.5" />
           </Link>
         </Badge>
 
-        <h1 className="mx-auto mt-6 max-w-xl font-medium text-4xl tracking-[-0.04em] sm:text-[2.75rem] md:text-6xl/[1.2]">
-          Ship better UI without&nbsp;the&nbsp;hassle
+        <h1 className="mx-auto mt-8 font-heading text-5xl font-extrabold tracking-[0.02em] leading-[1.1] sm:text-6xl md:text-7xl">
+          Discover Your <span className="text-primary">True Vibe</span>, Define Your Style
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-muted-foreground text-xl md:text-2xl/normal">
-          Instead of starting from scratch every time, use thoughtfully designed
-          blocks that give you a solid foundation for any UI.
+        
+        <p className="mx-auto mt-6 max-w-2xl font-sans text-lg text-muted-foreground md:text-[18px] leading-relaxed">
+          Generous spaces, punchy fuchsia buttons, and curated fashion layouts. Experience an e-commerce platform designed strictly to deliver pure shopping pleasure.
         </p>
-        <div className="mt-12 flex items-center justify-center gap-4">
-          <Button className="rounded-full" size="lg">
-            Get Started <ArrowUpRight className="h-5! w-5!" />
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <Button asChild size="lg">
+            <Link href="/product" className="inline-flex items-center">
+              Explore Storefront <ArrowUpRight className="ml-1 size-5" />
+            </Link>
           </Button>
           <Button
-            className="rounded-full shadow-none"
+            asChild
             size="lg"
             variant="outline"
           >
-            <CirclePlay className="h-5! w-5!" /> Watch Demo
+            <Link href="/course" className="inline-flex items-center">
+              Our Courses <CirclePlay className="mr-2 size-5 text-primary" />
+            </Link>
           </Button>
         </div>
       </div>

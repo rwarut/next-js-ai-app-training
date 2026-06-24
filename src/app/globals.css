@@ -39,76 +39,105 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 6px;
-  --radius-xl: 8px;
+  
+  /* ShopVibe Radius scale */
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  
+  /* ShopVibe Layered Shadows */
+  --shadow-subtle: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-medium: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-large: 0 10px 25px rgba(0,0,0,0.1), 0 6px 10px rgba(0,0,0,0.06);
+  --shadow-overlay: 0 25px 50px rgba(0,0,0,0.15), 0 12px 24px rgba(0,0,0,0.08);
+  --shadow-product-hover: 0 14px 32px rgba(217, 70, 239, 0.12), 0 6px 12px rgba(0,0,0,0.06);
 }
 
 :root {
-  --background: #1A0F0A;
-  --foreground: #F5E6D3;
-  --card: #2C1A10;
-  --card-foreground: #F5E6D3;
-  --popover: #2C1A10;
-  --popover-foreground: #F5E6D3;
-  --primary: #CA8A04;
-  --primary-foreground: #1A0F0A;
-  --secondary: #991B1B;
-  --secondary-foreground: #F5E6D3;
-  --muted: #3D2517;
-  --muted-foreground: #BFA98A;
-  --accent: #581C87;
-  --accent-foreground: #F5E6D3;
-  --destructive: #991B1B;
-  --destructive-foreground: #F5E6D3;
-  --border: #5C3D2E;
-  --input: #5C3D2E;
-  --ring: #CA8A04;
-  --radius: 4px;
-  --sidebar: #2C1A10;
-  --sidebar-foreground: #F5E6D3;
-  --sidebar-primary: #CA8A04;
-  --sidebar-primary-foreground: #1A0F0A;
-  --sidebar-accent: #3D2517;
-  --sidebar-accent-foreground: #F5E6D3;
-  --sidebar-border: #5C3D2E;
-  --sidebar-ring: #CA8A04;
-  --chart-1: #CA8A04;
-  --chart-2: #991B1B;
-  --chart-3: #581C87;
+  /* ShopVibe Colors */
+  --background: #FAFAFA;
+  --foreground: #171717;
+  --card: #FFFFFF;
+  --card-foreground: #171717;
+  --popover: #FFFFFF;
+  --popover-foreground: #171717;
+  
+  --primary: #D946EF;
+  --primary-foreground: #FFFFFF;
+  
+  --secondary: #22D3EE;
+  --secondary-foreground: #083344;
+  
+  --muted: #F5F5F5;
+  --muted-foreground: #525252;
+  
+  --accent: #FACC15;
+  --accent-foreground: #1E1B4B;
+  
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  
+  --border: #E5E5E5;
+  --input: #D4D4D4;
+  --ring: #D946EF;
+  --radius: 16px;
+  --font-body: var(--font-body-latin), var(--font-body-thai), sans-serif;
+
+  /* ShopVibe Sidebar Setup */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #171717;
+  --sidebar-primary: #D946EF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5F5F5;
+  --sidebar-accent-foreground: #171717;
+  --sidebar-border: #E5E5E5;
+  --sidebar-ring: #D946EF;
+
+  --chart-1: #D946EF;
+  --chart-2: #22D3EE;
+  --chart-3: #FACC15;
   --chart-4: #22C55E;
-  --chart-5: #BFA98A;
+  --chart-5: #3B82F6;
 }
 
+/* Force light themes or identical color palettes to keep contrast crisp and premium */
 .dark {
-  --background: #1A0F0A;
-  --foreground: #F5E6D3;
-  --card: #2C1A10;
-  --card-foreground: #F5E6D3;
-  --popover: #2C1A10;
-  --popover-foreground: #F5E6D3;
-  --primary: #CA8A04;
-  --primary-foreground: #1A0F0A;
-  --secondary: #991B1B;
-  --secondary-foreground: #F5E6D3;
-  --muted: #3D2517;
-  --muted-foreground: #BFA98A;
-  --accent: #581C87;
-  --accent-foreground: #F5E6D3;
-  --destructive: #991B1B;
-  --destructive-foreground: #F5E6D3;
-  --border: #5C3D2E;
-  --input: #5C3D2E;
-  --ring: #CA8A04;
-  --sidebar: #2C1A10;
-  --sidebar-foreground: #F5E6D3;
-  --sidebar-primary: #CA8A04;
-  --sidebar-primary-foreground: #1A0F0A;
-  --sidebar-accent: #3D2517;
-  --sidebar-accent-foreground: #F5E6D3;
-  --sidebar-border: #5C3D2E;
-  --sidebar-ring: #CA8A04;
+  --background: #FAFAFA;
+  --foreground: #171717;
+  --card: #FFFFFF;
+  --card-foreground: #171717;
+  --popover: #FFFFFF;
+  --popover-foreground: #171717;
+  
+  --primary: #D946EF;
+  --primary-foreground: #FFFFFF;
+  
+  --secondary: #22D3EE;
+  --secondary-foreground: #083344;
+  
+  --muted: #F5F5F5;
+  --muted-foreground: #525252;
+  
+  --accent: #FACC15;
+  --accent-foreground: #1E1B4B;
+  
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  
+  --border: #E5E5E5;
+  --input: #D4D4D4;
+  --ring: #D946EF;
+  --font-body: var(--font-body-latin), var(--font-body-thai), sans-serif;
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #171717;
+  --sidebar-primary: #D946EF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5F5F5;
+  --sidebar-accent-foreground: #171717;
+  --sidebar-border: #E5E5E5;
+  --sidebar-ring: #D946EF;
 }
 
 @layer base {

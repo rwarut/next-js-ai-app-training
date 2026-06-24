@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import type { ProductCardItem } from "@/components/features-product";
 import { useCartStore } from "@/lib/cart-store";
-import { ChevronRight } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 
 type Props = {
   product: ProductCardItem;
@@ -12,20 +12,24 @@ type Props = {
 export default function CartButton({ product }: Props) {
   const addItem = useCartStore((state) => state.addItem);   
 
-  const handleAddItem = () => {
-     addItem({
-        productId: String(product.id),
-        name: product.name,
-        price: product.price,
-        qty: 1
-     });   
+  const handleAddItem = (e: React.MouseEvent) => {
+    e.preventDefault();
+    addItem({
+      productId: String(product.id),
+      name: product.name,
+      price: product.price,
+      qty: 1
+    });   
   }
 
   return (
-    <>
-        <Button className="mt-6 shadow-none" onClick={handleAddItem}>
-            หยิบใส่ตะกร้า <ChevronRight />
-        </Button> 
-    </>
+    <Button 
+      size="sm" 
+      onClick={handleAddItem}
+      className="gap-2 shadow-sm rounded-full"
+    >
+      <ShoppingBag className="size-4" />
+      <span>หยิบใส่ตะกร้า</span>
+    </Button>
   );
 }
