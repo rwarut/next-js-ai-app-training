@@ -4,6 +4,9 @@
 This is **Next.js 16.2.7** — APIs, conventions, and file structure differ from older versions. Check changelog at https://nextjs.org/blog/next-16-2 before writing code. The bundled docs path `node_modules/next/dist/docs/` does NOT exist in this version.
 <!-- END:nextjs-agent-rules -->
 
+# Development Guidelines
+- For typescript code style and best practices: @docs/typescript-guidelines.md
+
 # Commands
 
 | Command | Purpose |

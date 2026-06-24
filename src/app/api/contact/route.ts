@@ -2,7 +2,7 @@ import { Resend } from 'resend';
 import { contactSchema } from '@/lib/validations/contact';
 import { NextResponse } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY || process.env.SMTP_PASS);
+
 
 export async function POST(req: Request) {
   try {
@@ -25,6 +25,16 @@ export async function POST(req: Request) {
         error: 'ระบบยังไม่ได้ระบุอีเมลผู้รับปลายทาง (CONTACT_RECEIVER_EMAIL)'
       }, { status: 500 });
     }
+
+    const apiKey = process.env.RESEND_API_KEY || process.env.SMTP_PASS;
+    if (!apiKey) {
+      return NextResponse.json({
+        success: false,
+        error: 'ระบบยังไม่ได้ระบุ API Key สำหรับส่งอีเมล (RESEND_API_KEY)'
+      }, { status: 500 });
+    }
+
+    const resend = new Resend(apiKey);
 
     await resend.emails.send({
       from: 'Contact Form <onboarding@resend.dev>',
