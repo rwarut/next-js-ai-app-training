@@ -37,6 +37,12 @@ type CategoryOption = {
   name: string;
 };
 
+const priceFormatter = new Intl.NumberFormat('th-TH', {
+  style: 'currency',
+  currency: 'THB',
+  maximumFractionDigits: 0
+});
+
 export default function ProductsClient() {
   const [products, setProducts] = useState<AdminProduct[]>([]);
   const [categories, setCategories] = useState<CategoryOption[]>([]);
@@ -49,12 +55,6 @@ export default function ProductsClient() {
   const [editProduct, setEditProduct] = useState<AdminProduct | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<AdminProduct | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
-
-  const priceFormatter = new Intl.NumberFormat('th-TH', {
-    style: 'currency',
-    currency: 'THB',
-    maximumFractionDigits: 0
-  });
 
   const fetchCategories = async () => {
     try {

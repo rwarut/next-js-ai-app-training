@@ -7,6 +7,19 @@ import { LayoutDashboard, Package, Home, LogOut } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 
+const navItems = [
+  {
+    name: "แดชบอร์ด",
+    href: "/dashboard",
+    icon: LayoutDashboard,
+  },
+  {
+    name: "จัดการสินค้า",
+    href: "/dashboard/products",
+    icon: Package,
+  },
+];
+
 export function AdminSidebar() {
   const pathname = usePathname();
 
@@ -19,19 +32,6 @@ export function AdminSidebar() {
       }
     });
   };
-
-  const navItems = [
-    {
-      name: "แดชบอร์ด",
-      href: "/dashboard",
-      icon: LayoutDashboard,
-    },
-    {
-      name: "จัดการสินค้า",
-      href: "/dashboard/products",
-      icon: Package,
-    },
-  ];
 
   return (
     <aside className="w-64 border-r bg-card/60 backdrop-blur-md flex flex-col h-screen sticky top-0">

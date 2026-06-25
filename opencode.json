@@ -5,8 +5,24 @@
     "permission": {
       "bash": {
         "git add *": "ask",  
-        "git commit *": "ask",
+        "git commit *": "ask",  
         "rm *": "ask"
+      }
+    },
+    "mcp": {
+      "next-devtools-mcp": {
+        "type": "local",
+        // Or ["bun", "x", "my-mcp-command"]
+        "command": ["npx", "-y", "next-devtools-mcp@latest"],
+        "enabled": true
+      },
+      "context7": {
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp",
+        "headers": {
+          "CONTEXT7_API_KEY": "ctx7sk-1c582e1f-87bd-4c0b-ab7b-110aba180818"
+        },
+        "enabled": true
       }
     }
   }

@@ -150,7 +150,7 @@ export function ProductFormModal({
                     value={field.value}
                     onChange={(e) => field.onChange(e.target.value)}
                     disabled={isPending}
-                    className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-11 w-full rounded-[12px] border-1.5 border-[#D4D4D4] bg-white px-4 py-2 text-base text-[#171717] transition-all outline-none focus-visible:border-primary focus-visible:ring-3 focus-visible:ring-primary/15 disabled:cursor-not-allowed disabled:bg-[#F5F5F5] disabled:opacity-50 md:text-sm"
                   >
                     <option value="" disabled>เลือกหมวดหมู่สินค้า</option>
                     {categories.map((cat) => (

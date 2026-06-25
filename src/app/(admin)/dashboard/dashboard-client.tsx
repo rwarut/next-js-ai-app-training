@@ -32,6 +32,12 @@ type AdminStats = {
   totalUsers: number;
 };
 
+const priceFormatter = new Intl.NumberFormat('th-TH', {
+  style: 'currency',
+  currency: 'THB',
+  maximumFractionDigits: 0
+});
+
 export default function DashboardClient() {
   const [stats, setStats] = useState<AdminStats | null>(null);
   const [statsLoading, setStatsLoading] = useState(true);
@@ -46,12 +52,6 @@ export default function DashboardClient() {
   const [revenueError, setRevenueError] = useState<string | null>(null);
 
   const [period, setPeriod] = useState<'7d' | '30d' | '90d'>('30d');
-
-  const priceFormatter = new Intl.NumberFormat('th-TH', {
-    style: 'currency',
-    currency: 'THB',
-    maximumFractionDigits: 0
-  });
 
   const fetchStats = async () => {
     setStatsLoading(true);
