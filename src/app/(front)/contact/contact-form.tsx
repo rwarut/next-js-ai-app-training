@@ -57,18 +57,19 @@ export function ContactForm() {
 
   if (isSuccess) {
     return (
-      <div className="flex flex-col items-center text-center gap-4 py-8 bg-[#2C1A10] border border-[#5C3D2E] rounded-sm shadow-[2px_8px_0px_0px_rgba(202,138,4,0.2)] p-8">
-        <CheckCircle className="text-[#CA8A04] w-12 h-12" />
+      <div className="flex flex-col items-center text-center gap-5 p-8 bg-white border border-[#E5E5E5] rounded-[16px] shadow-medium transition-all duration-200 hover:shadow-large">
+        <CheckCircle className="text-primary w-14 h-14" />
         <div className="space-y-2">
-          <h3 className="text-xl font-bold text-[#F5E6D3]" style={{ fontFamily: 'Cinzel, serif' }}>ส่งข้อความสำเร็จ!</h3>
-          <p className="text-[#BFA98A]">
+          <h3 className="font-heading text-xl font-bold text-foreground">ส่งข้อความสำเร็จ!</h3>
+          <p className="font-sans text-[#525252] text-sm">
             เราได้รับข้อความของคุณแล้ว และจะติดต่อกลับโดยเร็วที่สุด
           </p>
         </div>
         <Button 
           variant="outline" 
           onClick={() => setIsSuccess(false)}
-          className="mt-4 border-[#CA8A04] text-[#CA8A04] hover:bg-[#CA8A04]/10"
+          className="mt-2"
+          size="sm"
         >
           ส่งข้อความอีกครั้ง
         </Button>
@@ -77,52 +78,54 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 bg-[#2C1A10] border border-[#5C3D2E] p-8 rounded-sm shadow-[2px_8px_0px_0px_rgba(202,138,4,0.2)]">
-      <div className="border-t-2 border-[#CA8A04] -mt-8 pt-8 mb-6">
-        <h3 className="text-lg font-semibold text-[#CA8A04] uppercase tracking-wider" style={{ fontFamily: 'Cinzel, serif' }}>ส่งข้อความหาเรา</h3>
+    <form 
+      onSubmit={form.handleSubmit(onSubmit)} 
+      className="space-y-6 bg-white border border-[#E5E5E5] p-8 rounded-[16px] shadow-medium transition-all duration-200 hover:shadow-large"
+    >
+      <div className="border-b pb-4 border-[#E5E5E5] mb-6">
+        <h3 className="font-heading text-lg font-bold text-foreground">ส่งข้อความหาเรา</h3>
       </div>
       
       <Field>
-        <FieldLabel className="text-[#CA8A04] font-semibold" style={{ fontFamily: 'Cinzel, serif' }}>ชื่อ</FieldLabel>
+        <FieldLabel className="font-heading text-[13px] font-bold text-[#171717]">ชื่อ</FieldLabel>
         <FieldContent>
           <Input 
             {...form.register("name")} 
             placeholder="กรอกชื่อของคุณ" 
-            className="w-full bg-[#1A0F0A] border-[#5C3D2E] text-[#F5E6D3] placeholder:text-[#BFA98A]/50 focus:border-[#CA8A04] focus:ring-[#CA8A04]/25"
+            className="w-full"
           />
-          <FieldError errors={[form.formState.errors.name]} className="text-[#991B1B]" />
+          <FieldError errors={[form.formState.errors.name]} className="text-destructive font-sans text-xs mt-1" />
         </FieldContent>
       </Field>
 
       <Field>
-        <FieldLabel className="text-[#CA8A04] font-semibold" style={{ fontFamily: 'Cinzel, serif' }}>อีเมล</FieldLabel>
+        <FieldLabel className="font-heading text-[13px] font-bold text-[#171717]">อีเมล</FieldLabel>
         <FieldContent>
           <Input 
             {...form.register("email")} 
             type="email" 
             placeholder="example@email.com" 
-            className="w-full bg-[#1A0F0A] border-[#5C3D2E] text-[#F5E6D3] placeholder:text-[#BFA98A]/50 focus:border-[#CA8A04] focus:ring-[#CA8A04]/25"
+            className="w-full"
           />
-          <FieldError errors={[form.formState.errors.email]} className="text-[#991B1B]" />
+          <FieldError errors={[form.formState.errors.email]} className="text-destructive font-sans text-xs mt-1" />
         </FieldContent>
       </Field>
 
       <Field>
-        <FieldLabel className="text-[#CA8A04] font-semibold" style={{ fontFamily: 'Cinzel, serif' }}>ข้อความ</FieldLabel>
+        <FieldLabel className="font-heading text-[13px] font-bold text-[#171717]">ข้อความ</FieldLabel>
         <FieldContent>
           <Textarea 
             {...form.register("message")} 
-            rows={5} 
             placeholder="พิมพ์ข้อความที่ต้องการ..." 
-            className="w-full bg-[#1A0F0A] border-[#5C3D2E] text-[#F5E6D3] placeholder:text-[#BFA98A]/50 focus:border-[#CA8A04] focus:ring-[#CA8A04]/25"
+            className="w-full"
           />
-          <FieldError errors={[form.formState.errors.message]} className="text-[#991B1B]" />
+          <FieldError errors={[form.formState.errors.message]} className="text-destructive font-sans text-xs mt-1" />
         </FieldContent>
       </Field>
 
       <Button 
         type="submit" 
-        className="w-full bg-[#CA8A04] text-[#1A0F0A] font-bold border border-[#DAA520] hover:bg-[#B8780A] shadow-[1px_3px_0px_0px_rgba(202,138,4,0.15)]" 
+        className="w-full" 
         disabled={isPending}
       >
         {isPending ? (
