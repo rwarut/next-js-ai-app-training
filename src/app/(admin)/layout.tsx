@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Poppins, Nunito, Space_Mono, Prompt } from "next/font/google";
 import "../globals.css";
 import { AdminSidebar } from "./admin-sidebar";
-import { AdminGuard } from "./admin-guard";
-import { Suspense } from "react";
 
 const poppins = Poppins({
   weight: ["400", "600", "700", "800"],
@@ -41,15 +39,11 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" className={`${poppins.variable} ${nunito.variable} ${spaceMono.variable} ${prompt.variable} font-sans`}>
+    <html suppressHydrationWarning lang="th" className={`${poppins.variable} ${nunito.variable} ${spaceMono.variable} ${prompt.variable} font-sans`}>
       <body className="min-h-screen bg-background text-foreground antialiased flex">
         <AdminSidebar />
         <main className="flex-1 overflow-y-auto h-screen bg-muted/10">
-          <Suspense fallback={<div className="p-8 flex items-center justify-center h-full text-muted-foreground">กำลังตรวจสอบสิทธิ์...</div>}>
-            <AdminGuard>
-              {children}
-            </AdminGuard>
-          </Suspense>
+          {children}
         </main>
       </body>
     </html>

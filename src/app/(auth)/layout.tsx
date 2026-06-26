@@ -38,7 +38,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" className={`${poppins.variable} ${nunito.variable} ${spaceMono.variable} ${prompt.variable} font-sans`}>
+    <html suppressHydrationWarning lang="th" className={`${poppins.variable} ${nunito.variable} ${spaceMono.variable} ${prompt.variable} font-sans`}>
       <body>
         {children}
       </body>
