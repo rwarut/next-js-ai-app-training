@@ -18,7 +18,7 @@ export default function Hero() {
         >
           <Link href="/product" className="inline-flex items-center gap-1.5 font-bold">
             <Sparkles className="size-3.5 text-secondary animate-pulse" />
-            ShopVibe New Collection is Live <ArrowUpRight className="size-3.5" />
+            Welcome to the COLLECTION!! <ArrowUpRight className="size-3.5" />
           </Link>
         </Badge>
 
